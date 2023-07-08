@@ -17,6 +17,13 @@ export class User extends Document {
 
   @Prop()
   phoneNumber: string;
+  
+  @Prop()
+  externalAccounts: { 
+    stripe: {
+      customerId: string;
+    }
+  };
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);

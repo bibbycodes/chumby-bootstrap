@@ -22,11 +22,13 @@ export class StripeClient {
   async createCustomer(
     email: string,
     userId: string,
+    name?: string,
     source?: string,
   ): Promise<Stripe.Response<Stripe.Customer>> {
     return this.client.customers.create({
       email,
       source,
+      name,
       metadata: {userId: userId.toString()},
     });
   }

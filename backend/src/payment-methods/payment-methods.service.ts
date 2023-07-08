@@ -2,16 +2,18 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import {PaymentMethod, PaymentMethodDocument} from "../db/payment-method/payment-method.schema";
+import {StripeClient} from "../lib/stripe/stripe-client";
 
 @Injectable()
 export class PaymentMethodsService {
   constructor(
     @InjectModel('PaymentMethod')
     private readonly paymentMethodModel: Model<PaymentMethodDocument>,
+    private readonly StripeClient: StripeClient,
   ) {}
 
-  async create(paymentMethodDto: Partial<PaymentMethod>): Promise<PaymentMethod> {
-    const createdPaymentMethod = new this.paymentMethodModel(paymentMethodDto);
+  async create(createPaymentMethodRequest: Partial<PaymentMethod>): Promise<PaymentMethod> {
+    const createdPaymentMethod = new this.paymentMethodModel(createPaymentMethodRequest);
     return createdPaymentMethod.save();
   }
 

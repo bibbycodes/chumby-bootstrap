@@ -20,6 +20,8 @@ export class PaymentMethod extends Document {
 
   @Prop({ required: true })
   tokenId: string;
+  @Prop({ required: true })
+  stripePaymentMethodId: string;
 }
 
 export const PaymentMethodSchema = SchemaFactory.createForClass(PaymentMethod);
