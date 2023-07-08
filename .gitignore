@@ -1,0 +1,37 @@
+# Logs
+logs
+*.log
+
+# Build output
+dist
+
+# Dependency directories
+node_modules/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Compiled TypeScript
+*.js
+*.js.map
+
+# Unit test coverage
+coverage
+
+# End-to-end test reports
+test-reports
+
+# IDE and editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Miscellaneous
+.DS_Store
+Thumbs.db
+
+# NestJS-specific files
+nestjs-config.json
