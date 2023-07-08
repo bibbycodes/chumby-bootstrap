@@ -20,7 +20,6 @@ export class PaymentsController {
     try {
       const charge = await this.paymentService.createCharge(createChargeRequest);
       return {
-        success: true,
         chargeId: charge.id,
       };
     } catch (error) {
