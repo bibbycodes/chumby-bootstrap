@@ -9,7 +9,7 @@ export class PaymentMethodsService {
   constructor(
     @InjectModel('PaymentMethod')
     private readonly paymentMethodModel: Model<PaymentMethodDocument>,
-    private readonly StripeClient: StripeClient,
+    // private readonly StripeClient: StripeClient,
   ) {}
 
   async create(createPaymentMethodRequest: Partial<PaymentMethod>): Promise<PaymentMethod> {
