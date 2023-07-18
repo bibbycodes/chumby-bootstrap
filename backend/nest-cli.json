@@ -3,6 +3,12 @@
   "collection": "@nestjs/schematics",
   "sourceRoot": "src",
   "compilerOptions": {
-    "deleteOutDir": true
+    "deleteOutDir": true,
+    "assets": [
+      "src/lib/image_generation/base_images"
+    ]
+  },
+  "scripts": {
+    "prebuild": "ts-node copy-dir.ts"
   }
 }

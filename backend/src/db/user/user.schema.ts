@@ -17,8 +17,14 @@ export class User extends Document {
 
   @Prop()
   phoneNumber: string;
-  
-  @Prop()
+
+  @Prop({
+    type: {
+      stripe: {
+        customerId: { type: String },
+      },
+    },
+  })
   externalAccounts: { 
     stripe: {
       customerId: string;
