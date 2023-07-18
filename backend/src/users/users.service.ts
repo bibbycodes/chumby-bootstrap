@@ -9,17 +9,17 @@ import {getFullName} from "../db/user/user-utils";
 export class UserService {
   constructor(
     @InjectModel(User.name) private userModel: Model<UserDocument>,
-    private stripeClient: StripeClient,
+    // private stripeClient: StripeClient,
   ) {}
 
   async create(createUserRequest: Partial<User>): Promise<User> {
     const createdUser = new this.userModel(createUserRequest);
-    const stripeCustomer = await this.stripeClient.createCustomer(
-      createdUser.email,
-      createdUser._id,
-      getFullName(createdUser),
-    );
-    createdUser.externalAccounts.stripe.customerId = stripeCustomer.id;
+    // const stripeCustomer = await this.stripeClient.createCustomer(
+    //   createdUser.email,
+    //   createdUser._id,
+    //   getFullName(createdUser),
+    // );
+    // createdUser.externalAccounts.stripe.customerId = stripeCustomer.id;
     return createdUser.save();
   }
 
@@ -30,8 +30,12 @@ export class UserService {
   async findOneById(id: string): Promise<User> {
     return this.userModel.findById(id).exec();
   }
-  
+
   async findOneByEmail(email: string): Promise<User> {
+    return this.userModel.findOne({email}).exec();
+  }
+
+  async findOneByMail(email: string) {
     return this.userModel.findOne({email}).exec();
   }
 }
