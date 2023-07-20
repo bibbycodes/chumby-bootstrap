@@ -27,11 +27,15 @@ export class User extends Document {
       },
     },
   })
-  externalAccounts: { 
+  externalAccounts: {
     stripe: {
       customerId: string;
     }
   };
+
+  comparePassword(otherPassword: string) {
+    return bcrypt.compareSync(otherPassword, this.password);
+  }
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);

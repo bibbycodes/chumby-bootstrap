@@ -29,7 +29,7 @@ export enum Creatures {
 }
 
 const generateApparelString = (apparel: string[]): string => {
-  if (apparel.length === 0) {
+  if (apparel == null || apparel.length === 0) {
     return ''
   }
   if (apparel.length === 1) {

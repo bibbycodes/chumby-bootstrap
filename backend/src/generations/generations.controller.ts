@@ -8,9 +8,11 @@ export class GenerationsController {
 
   @Post('sitting-chumby')
   async generateImageToImage(
-    @Body('creature') creature: Creatures,
-    @Body('apparel') apparel: string[]
+    @Body() all: any,
+    // @Body('creature') creature: Creatures,
+    // @Body('apparel') apparel: string[]
   ): Promise<any> {
-    return await this.generationsService.generateSittingChumby(creature, apparel);
+    console.log(all)
+    return await this.generationsService.generateSittingChumby(all.creature, all.apparel);
   }
 }

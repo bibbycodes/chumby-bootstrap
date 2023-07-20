@@ -5,7 +5,7 @@
   "compilerOptions": {
     "deleteOutDir": true,
     "assets": [
-      "src/lib/image_generation/base_images"
+      "lib/image_generation/base_images/**/*"
     ]
   },
   "scripts": {
