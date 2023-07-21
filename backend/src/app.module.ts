@@ -19,6 +19,7 @@ import {GenerationsService} from "./generations/generations.service";
 import {StabilityClient} from "./lib/image_generation/stability/stability-client";
 import {S3Wrapper} from "./lib/aws/s3-wrapper";
 import {ImageSchema, Image} from "./db/image/image.schema";
+import {EmailModule} from "./email/email.module";
 
 @Module({
   imports: [
@@ -37,6 +38,7 @@ import {ImageSchema, Image} from "./db/image/image.schema";
     MongooseModule.forFeature([{name: Image.name, schema: ImageSchema}]),
     PaymentsModule,
     UsersModule,
+    EmailModule,
     PaymentMethodsModule,
     GenerationsModule,
   ],

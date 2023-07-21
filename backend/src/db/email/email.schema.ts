@@ -10,4 +10,5 @@ export class Email extends Document {
   active: boolean;
 }
 
+export const EmailSchema = SchemaFactory.createForClass(Email);
 export type EmailDocument = Email & Document;

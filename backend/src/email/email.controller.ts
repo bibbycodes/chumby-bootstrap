@@ -1,4 +1,4 @@
-import {Controller, Get, Post, Body, Param} from '@nestjs/common';
+import {Controller, Get, Post, Body, Put, Param} from '@nestjs/common';
 import {EmailService} from './email.service';
 import {ValidationPipe} from "@nestjs/common/pipes/validation.pipe";
 
@@ -7,13 +7,20 @@ export class EmailController {
   constructor(private readonly emailService: EmailService) {
   }
 
-  @Post('register')
-  async register(@Body(ValidationPipe) createEmailDto: { email: string }): Promise<void> {
+  @Post()
+  async register(@Body(ValidationPipe) createEmailDto: {
+    email: string
+  }): Promise<void> {
     await this.emailService.create(createEmailDto);
   }
 
-  @Post('deregister')
-  async deregister(@Body(ValidationPipe) updateEmailDto: { email: string }): Promise<void> {
-    await this.emailService.deregister(updateEmailDto.email);
+  @Put()
+  async update(@Body(ValidationPipe) updateEmailDto: {
+    email: string,
+    active: boolean
+  }): Promise<void> {
+    if (!updateEmailDto.active) {
+      await this.emailService.deregister(updateEmailDto.email);
+    }
   }
 }

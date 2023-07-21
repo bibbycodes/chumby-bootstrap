@@ -16,7 +16,7 @@ export class EmailService {
 
 
   async deleteOneByEmail(email: string): Promise<{ ok?: number; n?: number; }> {
-    return this.emailModule.deleteOne({ email }).exec();
+    return this.emailModule.deleteOne({ email }).exec() as any;
   }
 
   async findAll(): Promise<Email[]> {
