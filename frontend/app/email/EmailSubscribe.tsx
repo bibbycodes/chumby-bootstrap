@@ -19,7 +19,7 @@ export default function EmailSubscribe() {
   }
 
   return <>
-    <form onSubmit={handleSubscription} className={'mx-auto'}>
+    <form onSubmit={handleSubscription} className="flex">
       <input
         type="email"
         placeholder="Enter your email"
