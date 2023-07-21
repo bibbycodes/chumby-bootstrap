@@ -8,6 +8,15 @@
   --background-end-rgb: 255, 255, 255;
 }
 
+:root {
+  --color-skyBlue: #A4DCE2;
+  --color-pastelPink: #F7D9D7;
+  --color-grassGreen: #40CD7E;
+  --color-softBeige: #FCF5F0;
+  --color-offWhite: #FFFEFE;
+  --color-dark: #2E272A;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
@@ -18,10 +27,21 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background-color: var(--color-softBeige);
+  /*background: linear-gradient(*/
+  /*    to bottom,*/
+  /*    transparent,*/
+  /*    rgb(var(--background-end-rgb))*/
+  /*  )*/
+  /*  rgb(var(--background-start-rgb));*/
+}
+
+@font-face {
+  font-family: 'bubble';
+  src: url('../public/fonts/Boogaloo/Boogaloo-Regular.ttf') format('truetype'); /* Update the path to your font file */
+}
+
+#subscribe::placeholder {
+  color: var(--color-grassGreen);
+  text-align: center
 }
