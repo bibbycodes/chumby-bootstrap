@@ -1,10 +1,11 @@
-import {User} from "../../db/user/user.schema";
-import {EmailClient} from "../email/base-email-client";
+import {ElasticEmailClient} from "../email/elastic-email-client";
+import {Injectable} from "@nestjs/common";
+import {NodeMailerClient} from "../email/node-mailer-client";
 
-class Messenger {
-  constructor(private readonly email: EmailClient) {}
-
-  async sendMessage(user: User, template: string): Promise<void> {
-    await this.email.send('user', '', '');
+@Injectable()
+export class Messenger {
+  constructor(private readonly email: NodeMailerClient) {}
+  async sendEmail(from: string, to: string, subject, template: string): Promise<void> {
+    await this.email.send(from, to, subject, template);
   }
 }

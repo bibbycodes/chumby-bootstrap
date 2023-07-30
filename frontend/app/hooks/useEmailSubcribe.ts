@@ -1,7 +1,7 @@
 export default function useEmailSubscribe() {
 
   async function subscribeEmail(email:string): Promise<any> {
-    const response = await fetch('http://localhost:4000/email', {
+    const response = await fetch('http://localhost:4000/messages/email/subscribe', {
       headers: {
         'Content-Type': 'application/json',
       },

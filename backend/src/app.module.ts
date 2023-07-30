@@ -19,7 +19,7 @@ import {GenerationsService} from "./generations/generations.service";
 import {StabilityClient} from "./lib/image_generation/stability/stability-client";
 import {S3Wrapper} from "./lib/aws/s3-wrapper";
 import {ImageSchema, Image} from "./db/image/image.schema";
-import {EmailModule} from "./email/email.module";
+import {MessagesModule} from "./messages/messages.module";
 
 @Module({
   imports: [
@@ -38,12 +38,12 @@ import {EmailModule} from "./email/email.module";
     MongooseModule.forFeature([{name: Image.name, schema: ImageSchema}]),
     PaymentsModule,
     UsersModule,
-    EmailModule,
+    MessagesModule,
     PaymentMethodsModule,
     GenerationsModule,
   ],
   controllers: [PaymentsController, UsersController, PaymentMethodsController, GenerationsController],
-  providers: [PaymentsService, UserService, StripeClient, PaymentMethodsService, GenerationsService, StabilityClient, S3Wrapper]
+  providers: [PaymentsService, UserService,  StripeClient, PaymentMethodsService, GenerationsService, StabilityClient, S3Wrapper]
 })
 export class AppModule {
 }

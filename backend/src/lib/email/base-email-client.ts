@@ -8,12 +8,13 @@ export class BaseEmailClient {
 }
 
 export interface EmailClient {
-  send(to: string, subject: string, content: string): Promise<void>;
+  send(from: string, to: string, subject: string, content: string): Promise<void>;
   validate(email: string): boolean;
 }
 
 export enum EmailProviders {
   elastic = 'elastic',
-  sendgrid = 'sendgrid',
-  mailchimp = 'mailchimp',
+  sendGrid = 'sendgrid',
+  mailChimp = 'mailchimp',
+  nodeMailer = 'node-mailer',
 }
