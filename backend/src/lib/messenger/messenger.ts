@@ -1,4 +1,3 @@
-import {ElasticEmailClient} from "../email/elastic-email-client";
 import {Injectable} from "@nestjs/common";
 import {NodeMailerClient} from "../email/node-mailer-client";
 

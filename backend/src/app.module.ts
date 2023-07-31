@@ -20,6 +20,10 @@ import {StabilityClient} from "./lib/image_generation/stability/stability-client
 import {S3Wrapper} from "./lib/aws/s3-wrapper";
 import {ImageSchema, Image} from "./db/image/image.schema";
 import {MessagesModule} from "./messages/messages.module";
+import {ProductsController} from "./products/products.controller";
+import {ProductsModule} from "./products/products.module";
+import {ProductsService} from "./products/products.service";
+import {PrintfulClient} from "./lib/printful-client/printful-client";
 
 @Module({
   imports: [
@@ -41,9 +45,10 @@ import {MessagesModule} from "./messages/messages.module";
     MessagesModule,
     PaymentMethodsModule,
     GenerationsModule,
+    ProductsModule,
   ],
-  controllers: [PaymentsController, UsersController, PaymentMethodsController, GenerationsController],
-  providers: [PaymentsService, UserService,  StripeClient, PaymentMethodsService, GenerationsService, StabilityClient, S3Wrapper]
+  controllers: [PaymentsController, ProductsController, UsersController, PaymentMethodsController, GenerationsController],
+  providers: [PaymentsService, UserService, ProductsService, PrintfulClient,  StripeClient, PaymentMethodsService, GenerationsService, StabilityClient, S3Wrapper]
 })
 export class AppModule {
 }

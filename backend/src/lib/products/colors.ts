@@ -41,3 +41,13 @@ export const strikingRed: PhoneCaseColors = {
   borderColor: "#ED155D",
   innerCircleColor: "#FFFFFF"
 }
+
+export const colorSchemes = {
+  violetCream,
+  skyPink,
+  purplePink,
+  mintCream,
+  yellowPink,
+  mintSky,
+  strikingRed
+}
